@@ -44,16 +44,17 @@ namespace modmesh
 RMainWindow::RMainWindow()
     : QMainWindow()
 {
+    setUp();
     // Do not call setUp() from the constructor.  Windows may crash with
     // "exited with code -1073740791".  The reason is not yet clarified.
 }
 
 void RMainWindow::setUp()
 {
-    if (m_already_setup)
+    /*if (m_already_setup)
     {
         return;
-    }
+    }*/
 
     this->setWindowIcon(QIcon(QString(":/icon.ico")));
 
@@ -139,7 +140,7 @@ void RMainWindow::setUp()
     m_viewer = new R3DWidget();
     setCentralWidget(m_viewer);
 
-    m_already_setup = true;
+    //m_already_setup = true;
 }
 
 void RMainWindow::clearApplications()

@@ -62,10 +62,10 @@ RApplication * RApplication::instance()
 
 RApplication & RApplication::setUp()
 {
-    if (nullptr != m_mainWindow)
+    /*if (nullptr != m_mainWindow)
     {
         m_mainWindow->setUp();
-    }
+    }*/
     return *this;
 }
 

@@ -60,7 +60,7 @@ public slots:
 
 private:
 
-    bool m_already_setup = false;
+    //bool m_already_setup = false;
 
     QMenu * m_fileMenu = nullptr;
     QMenu * m_appMenu = nullptr;
