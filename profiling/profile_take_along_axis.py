@@ -75,8 +75,8 @@ def profile_take_along_axis(pow, it=10):
         indices = np.arange(0, N-1, dtype=dtype)
         np.random.shuffle(test_data)
         np.random.shuffle(indices)
-        test_sa = make_container(test_data)
-        idx_sa = make_container(indices)
+        #test_sa = make_container(test_data)
+        #idx_sa = make_container(indices)
 
         profile_take_along_axis_np(test_data, indices)
         #profile_take_along_axis_sa(test_sa, idx_sa)
@@ -98,10 +98,10 @@ def profile_take_along_axis(pow, it=10):
     print_row('func', 'per call (ms)', 'cmp to np', 'cmp to sa')
     print_row('-' * 10, '-' * 15, '-' * 15, '-' * 15)
     npbase = out["np"]
-    sabase = out["sa"]
+    #sabase = out["sa"]
     for k, v in out.items():
-        print_row(f"{k:8s}", f"{v:.3E}", f"{v/npbase:.3f}", f"{v/sabase:.3f}")
-
+        print_row(f"{k:8s}", f"{v:.3E}", f"{v/npbase:.3f}", "-")
+ 
     print()
 
 
