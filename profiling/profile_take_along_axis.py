@@ -64,7 +64,7 @@ def profile_take_along_axis_simd(sarr, indices):
     return sarr.take_along_axis_simd(indices)
 
 
-def profile_take_along_axis(pow, it=10):
+def profile_take_along_axis(pow, it=1):
     N = 2 ** pow
     ORDER = ["", "K", "M", "G", "T"][pow // 10]
     dtype = ["uint8", "uint16", "uint32", "uint64"][pow // 8]
@@ -80,7 +80,7 @@ def profile_take_along_axis(pow, it=10):
 
         profile_take_along_axis_np(test_data, indices)
         profile_take_along_axis_sa(test_sa, idx_sa)
-        # profile_take_along_axis_simd(test_sa, idx_sa)
+        profile_take_along_axis_simd(test_sa, idx_sa)
 
     res = modmesh.call_profiler.result()["children"]
 
@@ -100,14 +100,14 @@ def profile_take_along_axis(pow, it=10):
     npbase = out["np"]
     sabase = out["sa"]
     for k, v in out.items():
-        print_row(f"{k:8s}", f"{v:.3E}", f"{v/npbase:.3f}", "-")
+        print_row(f"{k:8s}", f"{v:.3E}", f"{v/npbase:.3f}",f"{v/sabase:.3f}")
  
     print()
 
 
 def main():
     pow = 7
-    it = 7
+    it = 1
 
     for _ in range(it):
         profile_take_along_axis(pow)
