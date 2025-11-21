@@ -79,8 +79,8 @@ def profile_take_along_axis(pow, it=10):
         idx_sa = make_container(indices)
 
         profile_take_along_axis_np(test_data, indices)
-        profile_take_along_axis_sa(test_sa, idx_sa)
-        profile_take_along_axis_simd(test_sa, idx_sa)
+        #profile_take_along_axis_sa(test_sa, idx_sa)
+        #profile_take_along_axis_simd(test_sa, idx_sa)
 
     res = modmesh.call_profiler.result()["children"]
 
