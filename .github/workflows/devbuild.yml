@@ -295,7 +295,7 @@ jobs:
     strategy:
       matrix:
         # https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md
-        os: [macos-15]
+        os: [macos-15-intel]
         cmake_build_type: [Release]
 
       fail-fast: false
@@ -399,7 +399,7 @@ jobs:
       - name: make pytest BUILD_QT=OFF
         run: |
           JOB_MAKE_ARGS="VERBOSE=1"
-          if [ "${{ matrix.os }}" == "macos-15" ] ; then \
+          if [ "${{ matrix.os }}" == "macos-15-intel" ] ; then \
             JOB_MAKE_ARGS="${JOB_MAKE_ARGS} BUILD_METAL=ON" ; \
           fi
           make pytest ${JOB_MAKE_ARGS}

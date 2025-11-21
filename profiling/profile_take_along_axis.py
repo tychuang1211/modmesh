@@ -67,7 +67,7 @@ def profile_take_along_axis_simd(sarr, indices):
 def profile_take_along_axis(pow, it=1):
     N = 2 ** pow
     ORDER = ["", "K", "M", "G", "T"][pow // 10]
-    dtype = "uint64"
+    dtype = ["uint8", "uint16", "uint32", "uint64"][pow // 8]
 
     modmesh.call_profiler.reset()
     for _ in range(it):
@@ -106,7 +106,7 @@ def profile_take_along_axis(pow, it=1):
 
 
 def main():
-    pow = 3
+    pow = 7
     it = 1
 
     for _ in range(it):
