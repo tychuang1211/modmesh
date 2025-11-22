@@ -100,13 +100,13 @@ def profile_take_along_axis(pow, it=1):
     npbase = out["np"]
     sabase = out["sa"]
     for k, v in out.items():
-        print_row(f"{k:8s}", f"{v:.3E}", f"{v/npbase:.3f}",f"{v/sabase:.3f}")
+        print_row(f"{k:8s}", f"{v:.3E}", f"{v/npbase:.3f}", f"{v/sabase:.3f}")
  
     print()
 
 
 def main():
-    pow = 7
+    pow = 1
     it = 1
 
     for _ in range(it):
