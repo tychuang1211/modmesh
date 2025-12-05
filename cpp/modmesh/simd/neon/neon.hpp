@@ -135,7 +135,7 @@ const T * check_between(T const * start, T const * end, T const & min_val, T con
 
     if (ptr != end)
     {
-        ret = check_between<T>(ptr, end, min_val, max_val);
+        return generic::check_between<T>(ptr, end, min_val, max_val);
     }
 
     return ret;
